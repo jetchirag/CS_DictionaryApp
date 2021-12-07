@@ -1,13 +1,9 @@
 #include<stdio.h>
-
 #include<iostream>
-
 #include<time.h>
-
 #include "json.hpp"
 
 using namespace std;
-
 using json = nlohmann::json;
 
 int searchWord(json j) {
@@ -43,8 +39,6 @@ int playQuiz(json j) {
             counter = 0;
             long int rand_value = rand() % max_size;
 
-            // cout<<rand_value;
-
             for (auto it = j.begin(); it != j.end(); ++it) {
                 if (counter == rand_value) {
                     if (w[0].empty()) {
@@ -64,7 +58,6 @@ int playQuiz(json j) {
                     break;
                 }
                 counter++;
-                // std::cout << it.key() << " | " << it.value() << "\n";
             }
 
         }
@@ -109,6 +102,6 @@ int playQuiz(json j) {
             return 0;
         }
     }
-    
+
     return 0;
 }
