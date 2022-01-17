@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<iostream>
 #include<time.h>
+#include<chrono>
 #include "json.hpp"
 
 using namespace std;
@@ -80,17 +81,25 @@ int playQuiz(json j) {
         // Print total points
         cout << "\nScore: " << score << "\n";
 
+        // Time limit logic
+        // chrono::steady_clock::time_point begin = chrono::steady_clock::now();
+
+
+
         // Take input for quiz answer
         int quiz_answer;
-        cout << "Correct choice? [1-4] (5 to quit): ";
+        cout << "Correct choice? [1-4] (5 to quit) (6 to skip [-1]): ";
         scanf("%d", & quiz_answer);
 
         if (quiz_answer == 5) {
             cout << "\nYou quit.\nTotal Score: " << score;
             return 0;
         }
-
-        if (quiz_answer == random_place + 1) {
+        if (quiz_answer == 6) {
+            cout<<"\n\nSkipped Word (-1): \n";
+            score -= 1;
+        }
+        else if (quiz_answer == random_place + 1) {
             cout << "\n\nCorrect Answer (+4)\n";
             score += 4;
         } else {

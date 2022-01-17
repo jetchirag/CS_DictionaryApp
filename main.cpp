@@ -32,6 +32,7 @@ void mainMenu(){
             playQuiz(j);
             break;
         case 3:
+            printf("\n$(tput setaf 4)Thanks you!\n");
             return;
             break;
         default:
